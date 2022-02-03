@@ -1,22 +1,19 @@
-import { createUseStyles } from "react-jss";
+import styled from "styled-components";
 import { SearchBar } from "./SearchBar";
 
-const useStyles = createUseStyles({
-  wrapper: {
-    width: "100%",
-    height: "3rem",
-    display: "flex",
-    justifyContent: "flex-end",
-    padding: "1rem",
-    boxSizing: "border-box",
-  },
-});
+const Wrapper = styled.div`
+  width: 100%;
+  height: 3rem;
+  display: flex;
+  justify-content: flex-end;
+  padding: 1rem;
+  box-sizing: border-box;
+`;
 
 export const HeaderTop = () => {
-  const classes = useStyles();
   return (
-    <div className={classes.wrapper}>
+    <Wrapper>
       <SearchBar />
-    </div>
+    </Wrapper>
   );
 };

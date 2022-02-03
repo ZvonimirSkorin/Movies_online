@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { fetch_movie_posters } from "./API";
 import { Image, Description, MovieList, Button, Title, Movie } from "./FeaturedMoviesStyledComponents";
 
-export const FeaturedMovies = () => {
+export function FeaturedMovies() {
   const [moviesList, setMoviesList] = useState([]);
   useEffect(() => {
     fetch_movie_posters(setMoviesList);
@@ -24,4 +24,4 @@ export const FeaturedMovies = () => {
       <Button>See all movies</Button>
     </div>
   );
-};
+}

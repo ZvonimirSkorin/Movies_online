@@ -29,11 +29,11 @@ const Input = styled.input`
   color: white;
 `;
 
-export const SearchBar = () => {
+export function SearchBar() {
   return (
     <Wrapper>
       <Image alt="" src="/Povecalo.svg" />
       <Input type="text" />
     </Wrapper>
   );
-};
+}

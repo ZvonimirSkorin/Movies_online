@@ -1,4 +1,3 @@
-import { createUseStyles } from "react-jss";
 import styled from "styled-components";
 
 export const MovieList = styled.div`
@@ -11,6 +10,9 @@ export const MovieList = styled.div`
   }
   @media screen and (max-width: 800px) {
     grid-template-columns: repeat(3, 1fr);
+  }
+  @media screen and (max-width: 450px) {
+    grid-template-columns: repeat(2, 1fr);
   }
 `;
 

@@ -1,9 +1,7 @@
 import { useState } from "react";
-import { createUseStyles } from "react-jss";
-import { useLinksStyles, useStyles, Wrapper, StyledItem, Title, LinksBox, Item } from "./HeaderBottomStyledComponent";
-import { SearchBar } from "./SearchBar";
+import { useStyles, Wrapper, Title, LinksBox, Item } from "./HeaderBottomStyledComponent";
 
-export const HeaderBottom = () => {
+export function HeaderBottom() {
   const classes = useStyles();
 
   return (
@@ -15,19 +13,18 @@ export const HeaderBottom = () => {
       <Links />
     </Wrapper>
   );
-};
+}
 
 const items = ["HOME", "MOVIES", "TV SHOWS", "NEWS", "CONTACTS"];
 
 const Links = () => {
   const [currentLink, setCurrentLink] = useState("HOME");
-  const classes = useLinksStyles(false);
   return (
     <LinksBox>
       {items.map((item, index) => {
         return (
           <Item
-            color={currentLink === item}
+            colorChange={currentLink === item}
             onClick={() => {
               setCurrentLink(item);
             }}

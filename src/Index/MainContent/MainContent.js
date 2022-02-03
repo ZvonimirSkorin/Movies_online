@@ -1,63 +1,21 @@
-import { useEffect, useState } from "react";
-import { createUseStyles } from "react-jss";
-import { fetch_movie_posters } from "./API";
+import styled from "styled-components";
 import { FeaturedMovies } from "./FeaturedMovies";
-import { useNewsStyles, Image, Description, YellowSubtitle, Background } from "./MainContentStyledComponents";
-const useStyles = createUseStyles({
-  Wrapper: {
-    width: "100%",
-    display: "flex",
-    flexDirection: "column",
-    gap: "2rem",
-    boxSizing: "border-box",
-    padding: "1rem",
-  },
-  News: {
-    display: "grid",
-    gridTemplateColumns: "repeat(3,1fr)",
-  },
-});
+import { News } from "./News";
 
-export const MainContent = () => {
-  const classes = useStyles();
+const Wrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  box-sizing: border-box;
+  padding: 1rem;
+`;
+
+export function MainContent() {
   return (
-    <div className={classes.Wrapper}>
+    <Wrapper>
       <News />
       <FeaturedMovies />
-    </div>
+    </Wrapper>
   );
-};
-
-const News = () => {
-  const classes = useNewsStyles();
-  const [posters, setPosters] = useState(null);
-  useEffect(() => {
-    fetch_movie_posters((results) => {
-      setPosters(results.slice(0, 5));
-    });
-  }, []);
-
-  return (
-    <div className={classes.News}>
-      {posters?.map((poster, index) => {
-        return (
-          <article style={{ gridArea: `${String.fromCharCode(97 + index)}` }} className={classes.article} key={index}>
-            <Image src={`https://image.tmdb.org/t/p/w500/${poster.backdrop_path}`} alt="" />
-            <Description fontSize={index}>
-              {WordGenerator(poster.overview, 5)}
-              <YellowSubtitle fontSize={index}>{WordGenerator(poster.overview, 5)}</YellowSubtitle>
-            </Description>
-            <Background />
-          </article>
-        );
-      })}
-    </div>
-  );
-};
-
-function WordGenerator(sentence, count) {
-  return sentence
-    .split(" ")
-    .slice(0, count)
-    .reduce((acc, val) => (acc += " " + val), "");
 }

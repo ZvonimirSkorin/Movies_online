@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { AboutSection, Button, NavButton, Wrapper, SideBarItem } from "./SideMenuStyledComponents";
+import { AboutSection, Button, NavButton, Aside, SideBarItem } from "./SideMenuStyledComponents";
 
-const items = [
+const genres = [
   "COMEDY",
   "DRAMA",
   "ACTION",
@@ -20,7 +20,7 @@ const items = [
   "SPORT",
 ];
 
-export const SideMenu = () => {
+export function SideMenu() {
   const [expand, setExpand] = useState(false);
   const [selectedGenre, setSelectedGenre] = useState("COMEDY");
   return (
@@ -29,21 +29,20 @@ export const SideMenu = () => {
         onClick={() => {
           setExpand(!expand);
         }}
-        z
       >
         Kategorije
       </NavButton>
-      <Wrapper expand={expand}>
-        {items.map((item, index) => {
+      <Aside expand={expand}>
+        {genres.map((genre, index) => {
           return (
             <SideBarItem
-              colorChange={selectedGenre === item}
+              colorChange={selectedGenre === genre}
               key={index}
               onClick={() => {
-                setSelectedGenre(item);
+                setSelectedGenre(genre);
               }}
             >
-              {item}
+              {genre}
             </SideBarItem>
           );
         })}
@@ -57,7 +56,7 @@ export const SideMenu = () => {
           </p>
           <Button>See all movies</Button>
         </AboutSection>
-      </Wrapper>
+      </Aside>
     </>
   );
-};
+}

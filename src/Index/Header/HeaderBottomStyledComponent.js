@@ -66,8 +66,16 @@ export const Item = styled.div`
     font-size: 0.8rem;
     padding: 0.5rem;
   }
+  @media screen and (max-width: 415px) {
+    font-size: 0.6rem;
+    padding: 0.5rem;
+  }
+  @media screen and (max-width: 350px) {
+    font-size: 0.5rem;
+    padding: 0.5rem;
+  }
   ${(props) =>
-    props.color &&
+    props.colorChange &&
     css`
       color: yellow;
     `}

@@ -46,7 +46,7 @@ export const SideBarItem = styled.div`
   }
 `;
 
-export const Wrapper = styled.div`
+export const Aside = styled.aside`
   width: 300px;
   max-width: 25%;
   margin: 2rem;
@@ -70,6 +70,7 @@ export const Wrapper = styled.div`
 `;
 
 export const NavButton = styled.div`
+  margin-top: 1rem;
   display: none;
   background-color: yellow;
   color: black;

@@ -3,8 +3,7 @@ import axios from "axios";
 let config = {
   headers: {
     "Content-Type": "application/json;charset=utf-8",
-    Authorization: `Bearer 
-    ${process.env.REACT_APP_API_KEY}`,
+    Authorization: `Bearer ${process.env.REACT_APP_API_KEY}`,
   },
 };
 export const fetch_movie_posters = (setList) => {
