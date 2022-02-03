@@ -1,4 +1,4 @@
-import { Image, Description, YellowSubtitle, Background, StyledNews, Article } from "./NewsStyledComponent";
+import { Image, Description, Background, StyledNews, Article } from "./NewsStyledComponent";
 import { useEffect, useState } from "react";
 import { fetch_movie_posters } from "./API";
 
@@ -16,9 +16,9 @@ export function News() {
         return (
           <Article key={index}>
             <Image src={`https://image.tmdb.org/t/p/w500/${poster.backdrop_path}`} alt="" />
-            <Description fontSize={index}>
-              {WordGenerator(poster.overview, 5)}
-              <YellowSubtitle fontSize={index}>{WordGenerator(poster.overview, 5)}</YellowSubtitle>
+            <Description className="Description">
+              <strong>{WordGenerator(poster.overview, 5)}</strong>
+              <div className="Subtitle">{WordGenerator(poster.overview, 5)}</div>
             </Description>
             <Background />
           </Article>

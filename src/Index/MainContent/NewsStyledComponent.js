@@ -22,8 +22,27 @@ export const StyledNews = styled.div`
       "e e";
   }
 
+  article {
+    strong {
+      font-size: 1.5rem;
+    }
+    .Subtitle {
+      font-size: 1rem;
+      color: yellow;
+      z-index: 10;
+      @media screen and (max-width: 700px) {
+        font-size: 1.3rem;
+      }
+    }
+  }
   article:nth-child(1) {
     grid-area: a;
+    strong {
+      font-size: 3rem;
+    }
+    .Subtitle {
+      font-size: 1.5rem;
+    }
   }
   article:nth-child(2) {
     grid-area: b;
@@ -75,7 +94,6 @@ export const Description = styled.div`
   @media screen and (max-width: 400px) {
     font-size: 1.5rem;
   }
-  font-size: ${({ fontSize }) => (fontSize > 0 ? "1.5rem" : "3rem")};
 `;
 
 export const Background = styled.div`
@@ -87,17 +105,4 @@ export const Background = styled.div`
   right: 0;
   bottom: 0;
   z-index: 4;
-`;
-export const YellowSubtitle = styled.div`
-  color: yellow;
-  font-size: 1.5rem;
-  z-index: 10;
-  ${(props) =>
-    props.fontSize > 0 &&
-    css`
-      font-size: 1rem;
-      @media screen and (max-width: 700px) {
-        font-size: 1.3rem;
-      }
-    `}
 `;
