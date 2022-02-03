@@ -70,16 +70,12 @@ export const Description = styled.div`
   justify-content: center;
   z-index: 12;
   color: white;
-  font-size: 3rem;
+
   text-align: center;
   @media screen and (max-width: 400px) {
     font-size: 1.5rem;
   }
-  ${(props) =>
-    props.fontSize > 0 &&
-    css`
-      font-size: 1.5rem;
-    `}
+  font-size: ${({ fontSize }) => (fontSize > 0 ? "1.5rem" : "3rem")};
 `;
 
 export const Background = styled.div`

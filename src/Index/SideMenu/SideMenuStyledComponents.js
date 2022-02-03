@@ -33,8 +33,8 @@ export const SideBarItem = styled.div`
   box-sizing: border-box;
   cursor: pointer;
   background-color: #232323;
-  ${(props) =>
-    props.colorChange &&
+  ${({ colorChange }) =>
+    colorChange &&
     css`
       background-color: yellow;
       color: black;
@@ -56,9 +56,9 @@ export const Aside = styled.aside`
 
   @media screen and (max-width: 600px) {
     width: 100%;
-    ${(props) =>
+    ${({ expand }) =>
       css`
-        transform: scaleY(${props.expand ? 1 : 0});
+        transform: scaleY(${expand ? 1 : 0});
         height: 0;
         max-width: 100%;
 

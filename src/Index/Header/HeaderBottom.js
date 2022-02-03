@@ -1,15 +1,13 @@
 import { useState } from "react";
-import { useStyles, Wrapper, Title, LinksBox, Item } from "./HeaderBottomStyledComponent";
+import { Wrapper, Title, LinksBox, Item, Logo } from "./HeaderBottomStyledComponent";
 
 export function HeaderBottom() {
-  const classes = useStyles();
-
   return (
-    <Wrapper className={classes.wrapper}>
-      <div>
-        <span style={{ fontSize: "2.1rem", fontWeight: "700" }}>Movies</span>
+    <Wrapper>
+      <Logo>
+        <span style={{ fontSize: "2.1rem", fontWeight: "700", display: "block" }}>Movies</span>
         <Title>Online</Title>
-      </div>
+      </Logo>
       <Links />
     </Wrapper>
   );
@@ -24,7 +22,7 @@ const Links = () => {
       {items.map((item, index) => {
         return (
           <Item
-            colorChange={currentLink === item}
+            isHero={currentLink === item}
             onClick={() => {
               setCurrentLink(item);
             }}

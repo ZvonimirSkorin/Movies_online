@@ -1,25 +1,4 @@
-import { createUseStyles } from "react-jss";
-import styled, { css } from "styled-components";
-
-export const useStyles = createUseStyles({
-  wrapper: {
-    width: "100%",
-    padding: "0.5rem 1rem",
-    marginTop: "1rem",
-    display: "flex",
-    boxSizing: "border-box",
-    color: "white",
-    gap: "0.5rem",
-    backgroundColor: "rgba(0, 0, 0, 0.212)",
-  },
-  "@media screen and (max-width: 700px)": {
-    wrapper: {
-      flexDirection: "column",
-      alignItems: "center",
-      gap: "1rem",
-    },
-  },
-});
+import styled from "styled-components";
 
 export const Wrapper = styled.div`
   background: rgb(43, 43, 32);
@@ -27,18 +6,29 @@ export const Wrapper = styled.div`
   width: 100%;
   padding: 0.5rem 1rem;
   margin-top: 1rem;
+  box-sizing: border-box;
   display: flex;
   color: white;
   gap: 0.5rem;
+  @media screen and (max-width: 700px) {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+`;
+
+export const Logo = styled.div`
+  display: flex;
 `;
 
 export const Title = styled.span`
   background-color: yellow;
   color: black;
+  display: block;
   padding: 0.2rem;
   box-sizing: border-box;
   height: 1.7rem;
-  margin-left: 4;
+  margin-left: 4px;
   font-weight: 700;
   border-radius: 2px;
 `;
@@ -61,7 +51,6 @@ export const Item = styled.div`
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  color: white;
   @media screen and (max-width: 600px) {
     font-size: 0.8rem;
     padding: 0.5rem;
@@ -74,25 +63,5 @@ export const Item = styled.div`
     font-size: 0.5rem;
     padding: 0.5rem;
   }
-  ${(props) =>
-    props.colorChange &&
-    css`
-      color: yellow;
-    `}
+  color: ${({ isHero }) => (isHero ? "yellow" : "white")};
 `;
-export const useLinksStyles = createUseStyles({
-  Temp: {
-    color: "yellow",
-  },
-  "@media screen and (max-width: 700px)": {
-    LinksBox: {
-      margin: "0 auto",
-    },
-  },
-  "@media screen and (max-width: 540px)": {
-    Item: {
-      fontSize: "0.8rem",
-      padding: "0.5rem",
-    },
-  },
-});
